@@ -1,0 +1,3171 @@
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  select sqlite_version(*)
+  [1m[36m (1.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20140728160255)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140728160255"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 12:16:36 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 814ms (Views: 802.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 12:16:37 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 12:16:37 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 12:16:37 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 12:16:37 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 12:16:37 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 12:16:37 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 12:16:37 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 12:16:37 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 12:16:37 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 12:27:15 -0400
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 841ms
+
+NameError (uninitialized constant HomesController::Article):
+  app/controllers/homes_controller.rb:5:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 12:27:55 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 512ms
+
+ActionView::Template::Error (undefined local variable or method `home_index_path' for #<#<Class:0x000001013376b8>:0x000001013348c8>):
+    4: 	<li><%= article[:index] %>.&nbsp<%= article[:title] %>&nbsp <span id="by">By: <%= article[:author] %></span> | <%= link_to("More Info", article[:url], :target => '_blank') %></li><br>
+    5: 	<% end %>
+    6: 	<br>
+    7: 	<%= link_to("See what's hot on Mashable", home_index_path) %>
+    8: </div>
+  app/views/homes/index.html.erb:7:in `_app_views_homes_index_html_erb___1750973615218450298_2157496680'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 344ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 12:28:19 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 12:37:08 -0400
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant HomesController::XML):
+  app/controllers/homes_controller.rb:13:in `get_reddit_articles2'
+  app/controllers/homes_controller.rb:4:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 12:37:24 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 676ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 12:37:25 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 12:37:25 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 12:37:25 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 12:37:25 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 12:37:25 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 12:37:25 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 12:37:25 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 12:37:25 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 12:37:25 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:32:36 -0400
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 613ms
+
+NameError (uninitialized constant HomesController::Nokogiri):
+  app/controllers/homes_controller.rb:16:in `get_property'
+  app/controllers/homes_controller.rb:4:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:34:32 -0400
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 204ms
+
+NameError (uninitialized constant HomesController::Nokogiri):
+  app/controllers/homes_controller.rb:16:in `get_property'
+  app/controllers/homes_controller.rb:4:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:34:35 -0400
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 367ms
+
+NameError (uninitialized constant HomesController::Nokogiri):
+  app/controllers/homes_controller.rb:16:in `get_property'
+  app/controllers/homes_controller.rb:4:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:34:44 -0400
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 414ms
+
+NameError (uninitialized constant HomesController::Nokogiri):
+  app/controllers/homes_controller.rb:16:in `get_property'
+  app/controllers/homes_controller.rb:4:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:39:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 274ms
+
+NameError (uninitialized constant HomesController::Nokogiri):
+  app/controllers/homes_controller.rb:16:in `get_property'
+  app/controllers/homes_controller.rb:4:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:39:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 255ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <div id="articles">
+    2: <h1>REDDIT's TOP 25</h1>
+    3: <% @article_all.each do |article| %>
+    4: 	<li><%= article[:index] %>.&nbsp<%= article[:title] %>&nbsp <span id="by">By: <%= article[:author] %></span> | <%= link_to("More Info", article[:url], :target => '_blank') %></li><br>
+    5: 	<% end %>
+    6: 	<br>
+  app/views/homes/index.html.erb:3:in `_app_views_homes_index_html_erb___103258047000994317_2191291380'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 344ms (Views: 62.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:29 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:40:39 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1417ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:40:41 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:41 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:40:41 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:40:41 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:41 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:41 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:41 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:41 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:40:41 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:41:17 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 711ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:41:18 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:41:18 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:41:18 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:41:18 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:41:18 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:41:18 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:41:18 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:41:18 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:41:18 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:45:27 -0400
+
+SyntaxError (/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/controllers/homes_controller.rb:21: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/homes_controller.rb:21: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 641ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:23 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 342ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:46:56 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:48:36 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 650ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:48:37 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:48:37 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:48:37 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:48:37 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:48:37 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:48:37 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:48:37 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:48:37 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:48:37 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 651ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:54:21 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:55:20 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 260ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:55:21 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:55:21 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:55:21 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:21 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:21 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:21 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:55:54 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 661ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:55:55 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:55:55 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:55:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:55 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:55 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:55:55 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 459ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:20 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 501ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:56:30 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 603ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 15:57:20 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 15:57:32 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 223ms
+
+ActionView::Template::Error (undefined method `children' for #<Array:0x000001068be5a0>):
+    1: 
+    2: 
+    3: <%= @article_all.children %>
+  app/views/homes/index.html.erb:3:in `_app_views_homes_index_html_erb___103258047000994317_2202265540'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:00:11 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 787ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:00:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:00:12 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:00:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:00:12 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:00:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:00:12 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:00:12 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:00:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:00:12 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:01:44 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 968ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:01:45 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:01:45 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:01:45 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:01:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:01:45 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:01:45 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:01:45 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:01:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:01:45 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 347ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:05 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 376ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:02:41 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:04:00 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2137ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:04:02 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:04:02 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:04:02 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:04:02 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:04:02 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:04:02 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:04:02 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:04:02 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:04:02 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:06:50 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 844ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:06:51 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:06:51 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:06:51 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:06:51 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:06:51 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:06:51 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:06:51 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:06:51 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:06:51 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:06:59 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 587ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:07:00 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:07:00 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:07:00 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:07:00 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:07:00 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:07:00 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:07:00 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:07:00 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:07:00 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 697ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:14:45 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:15:07 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 199ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:08 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:08 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:08 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:08 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:08 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:08 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 417ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:31 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 284ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:47 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 291ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:15:55 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 581ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:08 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:18:19 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 265ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:18:20 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:18:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:18:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:20 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:20 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:20 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 311ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:18:55 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 252ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:07 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:19:17 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 242ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:19:18 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:19:18 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:19:18 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:18 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:18 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:18 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:18 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:18 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:18 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 623ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:19:39 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:20:09 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 301ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:20:10 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:10 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:20:10 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:10 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:10 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:20:10 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:10 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:10 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:10 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:20:53 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 277ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:20:54 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:20:54 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:20:54 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:54 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:54 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:54 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:54 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:54 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:20:54 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:21:22 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 794ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:21:23 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:21:23 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:23 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:23 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:23 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:21:23 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:23 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:23 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:23 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 342ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:43 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:21:53 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 929ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:21:54 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:21:54 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:54 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:54 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:21:54 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:54 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:54 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:54 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:21:54 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:23:19 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 770ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:23:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:23:19 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:23:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:23:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:23:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:23:20 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:23:20 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:23:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:23:20 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:24:20 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 201ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:24:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:24:21 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:24:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:24:21 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:24:21 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:24:21 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:24:21 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:24:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:24:21 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:31:29 -0400
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 265ms
+
+NameError (undefined local variable or method `h1' for #<HomesController:0x0000010541eed8>):
+  app/controllers/homes_controller.rb:16:in `get_property'
+  app/controllers/homes_controller.rb:4:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 207ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:31:58 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:36:46 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 706ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:36:47 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:36:47 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:36:47 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:36:47 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:36:47 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:36:47 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:36:47 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:36:47 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:36:47 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 357ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:01 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:37:20 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 384ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:21 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:37:21 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:37:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:21 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:37:21 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:21 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:21 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 203ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:37:33 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:38:07 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 681ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:38:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:38:08 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:38:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:38:08 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:38:08 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:38:08 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:38:08 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:38:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:38:08 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:40:50 -0400
+
+SyntaxError (/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/controllers/homes_controller.rb:17: syntax error, unexpected '|', expecting '}'
+	    house.map do {|item| block} 
+	                   ^
+/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/controllers/homes_controller.rb:17: syntax error, unexpected '}', expecting keyword_end
+	    house.map do {|item| block} 
+	                               ^):
+  app/controllers/homes_controller.rb:17: syntax error, unexpected '|', expecting '}'
+  app/controllers/homes_controller.rb:17: syntax error, unexpected '}', expecting keyword_end
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:44:06 -0400
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 547ms
+
+NameError (undefined local variable or method `house' for #<HomesController:0x000001016fa610>):
+  app/controllers/homes_controller.rb:18:in `get_property'
+  app/controllers/homes_controller.rb:4:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:44:23 -0400
+Processing by HomesController#index as HTML
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:46:44 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:48:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 403ms
+
+SyntaxError (/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/views/homes/index.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/views/homes/index.html.erb:10: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/homes/index.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/homes/index.html.erb:10: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:49:07 -0400
+Processing by HomesController#index as HTML
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 16:50:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 643ms (Views: 72.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 16:50:38 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 16:50:38 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 16:50:38 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 16:50:38 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 16:50:38 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 16:50:38 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 16:50:38 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 16:50:38 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 16:50:38 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:00:56 -0400
+Processing by HomesController#index as HTML
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 45ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:43 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:03:55 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 612ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:03:56 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:03:56 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:56 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:56 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:56 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:03:56 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:56 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:56 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:03:56 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 388ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:04:06 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:04:46 -0400
+
+SyntaxError (/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/controllers/homes_controller.rb:21: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/homes_controller.rb:21: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:04:55 -0400
+
+SyntaxError (/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/controllers/homes_controller.rb:20: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/homes_controller.rb:20: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:05:15 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 554ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:05:16 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:05:16 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:05:16 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:16 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:16 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:16 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:16 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:16 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:16 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:05:28 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 199ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:29 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:05:29 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:05:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:29 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:05:29 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:29 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:29 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:05:49 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 241ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:50 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:50 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:05:50 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:05:50 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:05:50 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:50 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:50 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:50 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:05:50 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:06:37 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 753ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:06:38 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:06:38 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:38 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:06:38 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:38 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:38 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:38 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:38 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:38 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:06:46 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 406ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:06:47 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:47 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:47 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:47 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:06:47 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:06:47 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:47 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:47 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:06:47 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 347ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:13 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 436ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:07:20 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:09:10 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 631ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:09:11 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:09:11 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:09:11 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:09:11 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:09:11 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:09:11 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:09:11 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:09:11 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:09:11 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:10:34 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 865ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:10:35 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:35 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:10:35 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:35 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:35 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:10:35 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:35 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:35 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:35 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 192ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:10:54 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:16:49 -0400
+
+SyntaxError (/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/controllers/homes_controller.rb:19: syntax error, unexpected tINTEGER, expecting =>
+	    	hash << {item.index +1}
+	    	                      ^
+/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/controllers/homes_controller.rb:24: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/homes_controller.rb:19: syntax error, unexpected tINTEGER, expecting =>
+  app/controllers/homes_controller.rb:24: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:17:12 -0400
+
+SyntaxError (/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/controllers/homes_controller.rb:19: syntax error, unexpected '}', expecting =>
+/Users/carlyrosenberg/Desktop/WWW/week09/flip/app/controllers/homes_controller.rb:24: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/homes_controller.rb:19: syntax error, unexpected '}', expecting =>
+  app/controllers/homes_controller.rb:24: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:18:35 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 813ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:18:36 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:18:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:18:36 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:18:36 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:18:36 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:18:36 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:18:36 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:18:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:18:36 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:21:57 -0400
+Processing by HomesController#index as HTML
+Completed 500 Internal Server Error in 751ms
+
+REXML::ParseException (The document "Error: this account has reached is maximum number of calls for today7" does not have a valid root):
+  app/controllers/homes_controller.rb:16:in `get_property'
+  app/controllers/homes_controller.rb:4:in `index'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 541ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:24:43 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:25:06 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 242ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:07 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:07 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:07 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:07 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:07 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:07 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:07 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:07 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:07 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:25:14 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 261ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:15 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:15 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:15 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:15 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:15 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:15 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 418ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:28 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:25:38 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 381ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:39 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:39 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:39 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:25:39 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:39 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:39 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:39 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:39 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:25:39 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:26:01 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 827ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:26:02 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:26:02 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:26:02 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:02 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:02 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:02 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:02 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:02 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:02 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 472ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:20 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 354ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:26:30 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:29:02 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 614ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:29:03 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:29:03 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:29:03 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:29:03 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:29:03 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:29:03 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:29:03 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:29:03 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:29:03 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:33:01 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 752ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:33:02 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:33:02 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:33:02 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:33:02 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:33:02 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:33:02 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:33:02 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:33:02 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:33:02 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:47:29 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 365ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:47:30 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:47:30 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:47:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:47:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:47:30 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:47:30 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:47:30 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:47:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:47:30 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:54:28 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 540ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:54:29 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:54:29 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:54:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:29 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:29 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:29 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:54:56 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 355ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:56 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:54:56 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:56 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:57 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:54:57 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:54:57 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:57 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:57 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:54:57 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:57:10 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 621ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:57:11 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:57:11 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:57:11 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:57:11 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:57:11 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:57:11 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:57:11 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:57:11 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:57:11 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:58:32 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2046ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:58:34 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:58:34 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:58:34 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:34 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:34 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:34 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:34 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 190ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:58:35 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:59:40 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 195ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:59:41 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:59:41 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:41 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:59:41 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:41 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:41 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:41 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:41 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:41 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 17:59:58 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 656ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 17:59:59 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 17:59:59 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:59 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:59 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 17:59:59 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:59 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:59 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:59 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 17:59:59 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 569ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 18:01:30 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 546ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:06 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 204ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 18:03:56 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 18:05:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 954ms (Views: 64.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 18:05:44 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 18:05:44 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 18:05:44 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:44 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:44 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:44 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:44 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:44 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:44 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 209ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 18:05:53 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
+Processing by HomesController#index as HTML
+  Rendered homes/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 193ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 18:06:03 -0400
