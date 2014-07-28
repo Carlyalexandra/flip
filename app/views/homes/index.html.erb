@@ -1,5 +1,9 @@
-<h1>THIS IS WHERE THE LISITNGS WILL GO</h1>
+<h1>THIS IS WHERE THE LISTINGS WILL GO</h1>
 
-<%= @article_all %>
+<%= number_to_currency(@article_all) %>
 
-<%= @article %>
+
+<% @article_all.each do |home| %>
+	<li><%= home[:home]%></li><br>
+	<% end %>
+

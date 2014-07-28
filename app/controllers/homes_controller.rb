@@ -3,7 +3,6 @@ class HomesController < ApplicationController
 
   def index
   	@article_all = get_property
-  	@article = ENV['ZILLOW_ID']
   end
 
 
@@ -17,7 +16,12 @@ class HomesController < ApplicationController
 	  	key = ENV['ZILLOW_ID']
 		result = RestClient.get("http://www.zillow.com/webservice/GetComps.htm?zws-id=#{key}&zpid=48749425&count=5")
 		house = Hash.from_xml result
-	  	house["comps"]["message"]["text"]
+		collection = []
+	  	# house["comps"]["response"]["properties"]["principal"]["zestimate"]["amount"]
+	  	house["comps"]["response"]["properties"]["comparables"].each do |home|
+	  		collection << {home: home["comp"]["link"], amount: home["comp"]["zestimate"]["amount"]}
+	  	end
+	  	collection
 	  end 
 
 end
