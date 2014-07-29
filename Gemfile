@@ -31,9 +31,7 @@ gem 'json'
 gem 'devise'
 
 gem 'xml-simple', '~> 1.1.4'
-gem 'nokogiri', '~> 1.6.3.1'
-gem 'libxml-ruby', '~> 2.7.0'
-gem 'libxslt-ruby', '~> 1.1.1'
+gem "rubillow"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
