@@ -29,9 +29,11 @@ gem 'spring',        group: :development
 gem 'rest-client'
 gem 'json'
 gem 'devise'
+gem 'bourbon'
 
 gem 'xml-simple', '~> 1.1.4'
 gem "rubillow"
+gem 'will_paginate', '~> 3.0.5'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

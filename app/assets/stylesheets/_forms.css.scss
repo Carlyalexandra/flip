@@ -1,0 +1,76 @@
+.login1 {
+	margin-left: 30px;
+	width: 250px;
+	padding: 30px;
+	border: 2px solid;
+	border-radius: 10px;
+}
+
+.login1 form input {
+	height: 30px;
+	
+}
+
+.login1 form input[type="text"], .login1 form input[type="password"],.login1 form input[type="email"] {
+	background-color: #6C6E67;
+	border-radius: 3px;
+	color: #eee;
+	margin-bottom: 1em;
+	padding: 0 16px;
+	width: 200px;
+	border:medium none !important;
+}
+
+.login1 form input[type="submit"] {
+	background-color: #A8B38D;
+	border-radius: 3px;
+	color: #eee;
+	font-weight: bold;
+	width: 110px;
+	border:medium none !important;
+}
+
+.login1 form input[type="submit"]:hover {
+	background-color: #CBD4B6;
+}
+
+.login2 {
+	margin: 50px auto;
+	width: 240px;
+}
+
+.login2 form input {
+	height: 45px;
+}
+
+.login2 form input[type="text"], input[type="password"], input[type="email"]  {
+	background-color: #6E8ABA;
+	border-radius: 3px;
+	color: #eee;
+	margin-bottom: 1em;
+	padding: 0 16px;
+	width: 200px;
+	border:medium none !important;
+}
+
+.login2 form input[type="submit"] {
+	background-color: #132F5E;
+	border-radius: 3px;
+	color: #eee;
+	font-weight: bold;
+	width: 232px;
+	border:medium none !important;
+	margin-bottom: -2em;
+}
+
+.login2 form input[type="submit"]:hover {
+	background-color: #204380;
+}
+
+.checkbox label{
+	font-size: 13px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 19px;
+ 
+}

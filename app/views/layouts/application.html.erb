@@ -7,7 +7,53 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="header">
+<p id="logo"><%= link_to 'LOGO', root_path %></p>
+	<ul id="login">
+		<% if current_user %>
+		<li><p id="welcome">Welcome <%= link_to current_user.fname.capitalize, user_path(current_user) %>  |  <%= link_to "Log Out", destroy_user_session_path, method: "delete" %></p></li>
+		<% else %>
+		<li><p><%= link_to "Sign In", user_session_path %> | <%= link_to "Sign Up", new_user_registration_path %></p></li>
+		<% end %>	
 
+		<% if current_user and current_user.orders.last %>
+		 <li><p id="cart"><%= link_to image_tag("shopping_cart.png"), user_order_path(current_user.id, current_user.orders.last.id) %></li> 
+		<% end %> 
+	</ul>	
+	<div id="navset">
+		<nav>
+			<ul class="navdrop">
+				<li><a href="#">home</a>
+				</li>		
+				<li><a href="#">find properties</a>
+					<ul>
+						<li><a href="">Link</a></li>
+						<li><a href="">Link</a></li>
+						<li><a href="">Link</a></li>
+					</ul>
+				</li>	
+				<li><a href="#">forums</a>
+					<ul>
+						<li><a href="">Link</a></li>
+						<li><a href="">Link</a></li>
+						<li><a href="">Link</a></li>
+					</ul>
+		 		</li>
+		 		<li><a href="#">lenders</a>
+		 		</li>
+		 		<li><a href="#">design ideas</a>
+					<ul>
+						<li><a href="">Link</a></li>
+						<li><a href="">Link</a></li>
+						<li><a href="">Link</a></li>
+					</ul>
+				</li>
+				<li><a href="#">additional resources</a>
+		 		</li>		
+			</ul>
+		</nav>
+	</div>
+</div>
 <%= yield %>
 
 </body>

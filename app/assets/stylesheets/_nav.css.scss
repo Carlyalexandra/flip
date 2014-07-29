@@ -1,0 +1,64 @@
+$default1-color:#FFC464;
+$default2-color: orange;
+
+.navdrop	{
+	height: 50px;
+    padding: 0;
+	margin: 0;
+	position: fixed; 
+	border-radius: 5px;
+	width: 1000px;
+}
+
+.navdrop li 	{
+	height: auto;
+	width: 160px;  
+	float: left; 
+	text-align: center;  
+	list-style: none;  
+	padding: 0;
+	margin: 0;
+	background-color:$default2-color ;
+}
+
+.navdrop a	{							
+	padding: 18px 0;  
+	border-left: 1px solid #FFB439; 
+	border-right: 1px solid #FFB439; 
+	text-decoration: none;  
+	color: white; 
+	display: block;
+	font-size: 16px;
+	font-family: "Candara";
+}
+
+.navdrop li:hover, a:hover {
+	background-color: $default1-color;
+} 
+
+.navdrop li ul 	{
+	display: none;  
+	height: auto;									
+	margin: 0; 
+	padding: 0; 
+	
+}	
+
+.navdrop li:hover ul 	{
+    display: block;   
+}			
+
+.navdrop li ul li {
+	background-color: $default1-color;
+}
+
+.navdrop li ul li a 	{
+	border-left: 1px solid $default1-color; 
+	border-right: 1px solid $default1-color; 
+	border-top: 1px solid #FFB439; 
+	border-bottom: 1px solid $default1-color; 
+}
+				
+.navdrop li ul li a:hover {
+	background-color:$default2-color ;
+}

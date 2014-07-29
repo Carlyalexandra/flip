@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   get 'design_ideas/index'
 
   get 'design_ideas/show'

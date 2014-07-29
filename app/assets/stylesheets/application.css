@@ -13,3 +13,72 @@
  *= require_tree .
  *= require_self
  */
+@import 'forms';
+@import 'nav';
+
+html, body, p, hr, ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	list-style: none;
+	display: inline-block;
+	padding: 15px;
+	
+}
+
+
+nav {
+	width: 95%;
+	margin:0 auto;
+}
+
+#login {
+	text-align: right;
+	list-style: none;
+	margin-right: 10px;
+	font-size: 15px;
+	color: black;
+}
+
+#login a {
+	color: black;
+}
+#logo {
+	font-size: 40px;
+	margin-left: 20px;
+	padding-top: 20px;
+	font-family: 'Condara';
+
+}
+
+#logo a {
+	text-decoration: none;
+	color: black;
+}
+
+#logo a:hover {
+	text-decoration: none;
+	color: black;
+	background-color: orange;
+}
+#header {
+	background-color: orange;
+	position: fixed;
+	width: 100%;
+	top:0;
+
+}
+
+#navset {
+	width: 100%;
+	overflow: auto;
+	background-color: oranage;
+	height: 55px;
+}
+
+#main {
+	clear: both;
+	margin-top: 150px;
+}
