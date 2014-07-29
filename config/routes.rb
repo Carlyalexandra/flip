@@ -1,23 +1,10 @@
 Rails.application.routes.draw do
  
-  get 'design_ideas/index'
-
-  get 'design_ideas/show'
-
-  get 'addition_info/index'
-
-  get 'lenders/index'
-
-  get 'forums/index'
-
-  get 'forums/new'
-
-  get 'forums/show'
-
-  get 'forums/edit'
-
-  get 'homes/index'
-
+  resources :forums, only: [:index, :show, :new, :edit]
+  resources :homes, only: [:index, :show]
+  resources :lenders, only: [:index]
+  resources :addition_info, only: [:index]
+  resources :design_ideas, only: [:index, :show]
 
   root 'homes#main'
 

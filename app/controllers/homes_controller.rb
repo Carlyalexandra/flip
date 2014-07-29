@@ -3,7 +3,7 @@ class HomesController < ApplicationController
 
 
   def index
-  	@article_all = get_property
+ 
   end
 
 

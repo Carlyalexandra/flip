@@ -11,14 +11,10 @@
 <p id="logo"><%= link_to 'LOGO', root_path %></p>
 	<ul id="login">
 		<% if current_user %>
-		<li><p id="welcome">Welcome <%= link_to current_user.fname.capitalize, user_path(current_user) %>  |  <%= link_to "Log Out", destroy_user_session_path, method: "delete" %></p></li>
+		<li><p id="welcome"><%="Welcome #{current_user.name}" %> |  <%= link_to "Log Out", destroy_user_session_path, method: "delete" %></p></li>
 		<% else %>
 		<li><p><%= link_to "Sign In", user_session_path %> | <%= link_to "Sign Up", new_user_registration_path %></p></li>
-		<% end %>	
-
-		<% if current_user and current_user.orders.last %>
-		 <li><p id="cart"><%= link_to image_tag("shopping_cart.png"), user_order_path(current_user.id, current_user.orders.last.id) %></li> 
-		<% end %> 
+		<% end %>	 
 	</ul>	
 	<div id="navset">
 		<nav>
