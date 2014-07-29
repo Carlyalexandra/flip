@@ -1,7 +1,24 @@
 Rails.application.routes.draw do
+  get 'design_ideas/index'
+
+  get 'design_ideas/show'
+
+  get 'addition_info/index'
+
+  get 'lenders/index'
+
+  get 'forums/index'
+
+  get 'forums/new'
+
+  get 'forums/show'
+
+  get 'forums/edit'
+
   get 'homes/index'
 
-  root 'homes#index'
+
+  root 'homes#main'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4231,3 +4231,308 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-29 10:41:09 -0400
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-29 10:41:09 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:39:50 -0400
+
+ActionController::RoutingError (uninitialized constant HomesController::Rubillow):
+  app/controllers/homes_controller.rb:17:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.8ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (53.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:40:21 -0400
+
+ActionController::RoutingError (uninitialized constant HomesController::Rubillow):
+  app/controllers/homes_controller.rb:17:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (39.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:40:46 -0400
+
+ActionController::RoutingError (uninitialized constant HomesController::Rubillow):
+  app/controllers/homes_controller.rb:17:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (30.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:41:01 -0400
+
+ActionController::RoutingError (uninitialized constant HomesController::Rubillow):
+  app/controllers/homes_controller.rb:17:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:42:56 -0400
+
+ActionController::RoutingError (uninitialized constant HomesController::Rubillow):
+  app/controllers/homes_controller.rb:17:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (48.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:43:29 -0400
+
+LoadError (cannot load such file -- rubillow):
+  app/controllers/homes_controller.rb:2:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:43:52 -0400
+
+LoadError (cannot load such file -- rubillow):
+  app/controllers/homes_controller.rb:2:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:44:41 -0400
+
+LoadError (cannot load such file -- rubillow):
+  app/controllers/homes_controller.rb:2:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:45:36 -0400
+
+LoadError (cannot load such file -- rubillow):
+  app/controllers/homes_controller.rb:2:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:45:47 -0400
+
+ActionController::RoutingError (uninitialized constant HomesController::Rubillow):
+  app/controllers/homes_controller.rb:18:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (39.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:45:57 -0400
+Processing by HomesController#main as HTML
+  Rendered homes/main.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 858ms (Views: 857.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/addition_info.css?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/design_ideas.css?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/lenders.css?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/design_ideas.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/addition_info.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/lenders.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-29 12:45:58 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:46:15 -0400
+
+LoadError (cannot load such file -- rubillow):
+  app/controllers/homes_controller.rb:2:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:47:53 -0400
+
+LoadError (cannot load such file -- rubillow):
+  app/controllers/homes_controller.rb:2:in `<class:HomesController>'
+  app/controllers/homes_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 12:48:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomesController#main as HTML
+  Rendered homes/main.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 103ms (Views: 91.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/design_ideas.css?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/addition_info.css?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/lenders.css?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/forums.css?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/homes.css?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/addition_info.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/design_ideas.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/forums.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/homes.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/lenders.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-29 12:48:21 -0400
+
+
+Started GET "/roots" for 127.0.0.1 at 2014-07-29 12:49:51 -0400
+
+ActionController::RoutingError (No route matches [GET] "/roots"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/carlyrosenberg/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/carlyrosenberg/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/carlyrosenberg/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.5ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.4ms)
+  Rendered /Users/carlyrosenberg/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (39.2ms)

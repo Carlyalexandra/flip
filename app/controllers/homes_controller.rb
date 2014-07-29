@@ -1,12 +1,15 @@
 class HomesController < ApplicationController
-  ENV['ZILLOW_ID']
+# require 'rubillow'
+
 
   def index
   	@article_all = get_property
   end
 
 
+  def main
 
+  end
  
 
 

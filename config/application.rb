@@ -6,9 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Rubillow.configure do |configuration|
-  configuration.zwsid = ENV["ZILLOW_ID"]
-end
+
 
 module Flip
   class Application < Rails::Application
