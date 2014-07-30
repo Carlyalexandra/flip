@@ -6,7 +6,7 @@
 <% end %>
 <% if @compares %>
 <% @compares.comparables.each do |comp| %>
-<%= comp.last.address[:street] %> | <%= number_to_currency(comp.last.price) %> | <%= number_to_currency(comp.last.last_sold_price) %> <br>
+<%= comp.last.address[:street] %> | <%= number_to_currency(comp.last.price) %> | <%= number_to_currency(comp.last.last_sold_price) %> | <%= link_to "more info", comp.last.links[:homedetails],target: "_blank" %> | <%# link_to "Save to Search", %><br>
   <% end %>
 <% end %>
 </div>        

@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729183721) do
+ActiveRecord::Schema.define(version: 20140730205813) do
 
   create_table "homes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "zpid"
+    t.string   "link"
+    t.integer  "last_sold_price"
+    t.datetime "last_sold_date"
+    t.integer  "price"
+    t.string   "address"
+    t.string   "city"
   end
+
+  add_index "homes", ["user_id"], name: "index_homes_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
