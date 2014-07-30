@@ -68,6 +68,7 @@ nav {
 	background-color: orange;
 }
 #header {
+	z-index: 5;
 	background-color: orange;
 	position: fixed;
 	width: 100%;
@@ -84,7 +85,10 @@ nav {
 
 #main {
 	clear: both;
-	margin-top: 155px;
+}
+
+#buffer {
+	padding-top: 155px;
 }
 
 

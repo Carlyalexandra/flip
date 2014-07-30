@@ -2,9 +2,13 @@ class HomesController < ApplicationController
 # require 'rubillow'
 
 
-  def index
- 
-  end
+ def index
+ query = params[:citystatezip].to_s 
+ search = Rubillow::HomeValuation.search_results({ :address => '265 Lafayette Street', :citystatezip => query }) if query
+ value = search.zpid 
+ @results = Rubillow::HomeValuation.zestimate({ :zpid => value }) if value
+ @compares = Rubillow::PropertyDetails.deep_comps({ :zpid => value, :count => 5 }) if value
+ end
 
 
   def main
@@ -14,6 +18,11 @@ class HomesController < ApplicationController
 
 
   private
+
+  # def search_params
+  # 	params.require(:user).permit(:citystatezip)
+  # end
+
 
   #posts in a specific area
   data = Rubillow::Postings.region_postings({ :zipcode => "" })
@@ -34,7 +43,7 @@ class HomesController < ApplicationController
   compares = Rubillow::PropertyDetails.deep_comps({ :zpid => '', :count => 10 }) #or
     if compares.success?
         puts compares.principal.price 
-        data.comparables.each do |comp|
+        compares.comparables.each do |comp|
           puts comp.last.price
           puts comp.last.address[:street]
           puts comp.last.last_sold_price

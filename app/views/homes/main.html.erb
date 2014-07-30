@@ -3,7 +3,7 @@
 	<br>
 		<div id="search">
 		<%= form_tag homes_path, :method => 'get', id: 'inputs' do %>
-    	<%= text_field_tag :search, params[:citystatezip], placeholder: 'Enter a city and state, or zipcode' %>
+    	<%= text_field_tag :citystatezip, nil, placeholder: 'Enter a city and state, or zipcode' %>
     	<%= submit_tag "Submit" %>
 <% end %>
 		</div>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :addition_info, only: [:index]
   resources :design_ideas, only: [:index, :show]
 
+  post 'homes/search', to: 'homes#search'
+
   root 'homes#main'
 
   devise_for :users

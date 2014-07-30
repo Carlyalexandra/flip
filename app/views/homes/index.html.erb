@@ -1,4 +1,17 @@
-<h1>THIS IS WHERE THE LISTINGS WILL GO</h1>
+<div id="wapperH">
+<h1>THIS IS WHERE THE LISTINGS WILL GO </h1>
+<% if @results %>
+<%= @results.address[:street] %> | <%= number_to_currency(@results.price) %> <br>
+<br>
+<% end %>
+<% if @compares %>
+<% @compares.comparables.each do |comp| %>
+<%= comp.last.address[:street] %> | <%= number_to_currency(comp.last.price) %> | <%= number_to_currency(comp.last.last_sold_price) %> <br>
+  <% end %>
+<% end %>
+</div>        
+
+
 
 
 
