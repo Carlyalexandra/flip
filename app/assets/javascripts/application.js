@@ -14,3 +14,39 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-sprockets
+
+$(document).on('ready page:load', function () {
+
+
+
+
+	$("#formulButton").click(function(){
+
+		
+		var avrPrice = Number($("#avr_").val().replace(/[^0-9\.]+/g,""));
+
+		// var avrPrice= Number($("#avr_").html().replace(/[^0-9\.]+/g,""));
+		// //document.getElementById("whatItem").innerHTML
+		var seventyPercent = avrPrice * .7
+
+		var repairCost = Number($("#repair_").val().replace(/[^0-9\.]+/g,""));
+		
+		var thisCost = (seventyPercent - repairCost).toFixed(2)
+		// //document.getElementById("quantity").value
+		var myTotal = "$"+thisCost;
+
+		$("#houseCost").html(myTotal).digits()
+		
+	});
+
+
+		$.fn.digits = function(){ 
+    	return this.each(function(){ 
+        $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
+    })
+}
+
+
+		
+});

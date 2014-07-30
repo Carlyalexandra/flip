@@ -1,13 +1,28 @@
 <div id="main">
 	<section id="topsection">
+	<br>
 		<div id="search">
-			SEARCH BAR
+		<%= form_tag homes_path, :method => 'get', id: 'inputs' do %>
+    	<%= text_field_tag :search, params[:citystatezip], placeholder: 'Enter a city and state, or zipcode' %>
+    	<%= submit_tag "Submit" %>
+<% end %>
 		</div>
 		<div id="video">
-			VIDEO WILL GO HERE
+			<iframe width="490" height="276" src="//www.youtube.com/embed/IJk0vH0Qous" frameborder="0" allowfullscreen></iframe>
 		</div>
 		<div id="formula">
-			FORMULA CALCULATOR
+			<h3>The 70% RULE</h3>
+			<h4>The Most Important Formula When Flipping Houses </h4>
+
+		    <p> Enter the after-repair-value,(AVR), of the property.</p>
+			$<%= text_field('avr', nil, placeholder: 'eg. 300,000') %>
+			<p>Enter estimateed cost for total repairs.</p>
+			$<%= text_field('repair', nil, placeholder: 'eg. 40,000') %> <br>
+			<%= button_tag "Submit", id:'formulButton' %>
+		
+			<p>To earn a of profit, you need to purchase the property <br>	 for no more than:</p>
+
+			 <div id='houseCost'></div>
 		</div>
 	</section>
 	<hr>
@@ -28,4 +43,5 @@
 	</section>
 
 </div>
+
 

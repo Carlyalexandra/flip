@@ -35,6 +35,10 @@ gem 'xml-simple', '~> 1.1.4'
 gem "rubillow"
 gem 'will_paginate', '~> 3.0.5'
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'bourbon'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'database_cleaner'

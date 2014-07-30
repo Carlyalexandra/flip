@@ -13,44 +13,49 @@
 		<% if current_user %>
 		<li><p id="welcome"><%="Welcome #{current_user.name}" %> |  <%= link_to "Log Out", destroy_user_session_path, method: "delete" %></p></li>
 		<% else %>
-		<li><p><%= link_to "Sign In", user_session_path %> | <%= link_to "Sign Up", new_user_registration_path %></p></li>
-		<% end %>	 
+		<li><p><%= link_to "Sign In", user_session_path, id: 'signin' %> | <%= link_to "Sign Up", new_user_registration_path, id: 'signin' %></p></li>
+		<% end %>	
+		<br>
 	</ul>	
 	<div id="navset">
 		<nav>
 			<ul class="navdrop">
-				<li><a href="#">home</a>
+				<li><%= link_to 'home', root_path %>
 				</li>		
-				<li><a href="#">find properties</a>
+				<li><%=link_to 'find properties', homes_path %>
 					<ul>
 						<li><a href="">Link</a></li>
 						<li><a href="">Link</a></li>
 						<li><a href="">Link</a></li>
 					</ul>
 				</li>	
-				<li><a href="#">forums</a>
+				<li><%=link_to'forums', forums_path %>
 					<ul>
 						<li><a href="">Link</a></li>
 						<li><a href="">Link</a></li>
 						<li><a href="">Link</a></li>
 					</ul>
 		 		</li>
-		 		<li><a href="#">lenders</a>
+		 		<li><%=link_to "lenders", lenders_path %>
 		 		</li>
-		 		<li><a href="#">design ideas</a>
+		 		<li><%=link_to "design ideas", design_ideas_path %>
 					<ul>
 						<li><a href="">Link</a></li>
 						<li><a href="">Link</a></li>
 						<li><a href="">Link</a></li>
 					</ul>
 				</li>
-				<li><a href="#">additional resources</a>
+				<li><%=link_to "additional resources", addition_info_index_path %>
 		 		</li>		
 			</ul>
 		</nav>
 	</div>
 </div>
+
+
 <%= yield %>
 
 </body>
 </html>
+
+

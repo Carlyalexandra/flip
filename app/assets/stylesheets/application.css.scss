@@ -13,10 +13,14 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import 'bootstrap-custom';
+@import 'bourbon';
 @import 'forms';
 @import 'nav';
+@import 'main';
 
-html, body, p, hr, ul {
+html, body, p, hr, ul, nav {
 	margin: 0;
 	padding: 0;
 }
@@ -74,11 +78,13 @@ nav {
 #navset {
 	width: 100%;
 	overflow: auto;
-	background-color: oranage;
+	background-color: orange;
 	height: 55px;
 }
 
 #main {
 	clear: both;
-	margin-top: 150px;
+	margin-top: 155px;
 }
+
+

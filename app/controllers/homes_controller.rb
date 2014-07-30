@@ -8,20 +8,66 @@ class HomesController < ApplicationController
 
 
   def main
-
+  
   end
  
 
 
   private
- 
- 	property = Rubillow::HomeValuation.zestimate({ :zpid => '48749425' })
+
+  #posts in a specific area
+  data = Rubillow::Postings.region_postings({ :zipcode => "" })
+  if data.success?
+        data.make_me_move.each do |posting|
+         puts posting.price
+         puts posting.address[:street]
+         end
+     end
+
+  #Get the id of the properties/compare to similiar properties
+  	data = Rubillow::HomeValuation.search_results({ :address => '', :citystatezip => '' })
+    if data.success?
+      puts data.zpid     
+      puts data.price  
+    end
+
+  compares = Rubillow::PropertyDetails.deep_comps({ :zpid => '', :count => 10 }) #or
+    if compares.success?
+        puts compares.principal.price 
+        data.comparables.each do |comp|
+          puts comp.last.price
+          puts comp.last.address[:street]
+          puts comp.last.last_sold_price
+        end
+      end
+
+#Price change equaion
+ data = Rubillow::HomeValuation.zestimate({ :zpid => '' })
+ if data.success?
+        puts data.zpid          
+        puts data.price         
+        puts data.value_change  
+ end
+  
+  #price the property was last sold for
+  data = Rubillow::PropertyDetails.deep_search_results({ :address => '', :citystatezip => '' })
+  if data.success?
+       puts data.last_sold_price       
+  end
+
+ #price difference for the property since it was last sold
+ property = Rubillow::HomeValuation.zestimate({ :zpid => '48749425' })
 	if property.success?
 	  puts property.price
-	  p property.address[:latitude]
 	  puts property.change
  	end
-	 
+
+#Chart that shows change
+ chart = Rubillow::HomeValuation.chart({ :zpid => '', :height => '300', :width => '150', :unit_type => 'dollars' })
+	if chart.success?
+        puts chart.to_html
+    end	 
+
 
 end
 
