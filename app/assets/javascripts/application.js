@@ -40,18 +40,18 @@ $(document).on('ready page:load', function () {
 	// $(document).on('ajax:success', '.nav', function(e){
 
 	    $("#signup").click(function() { 
-	    	$("#joinnow").show();
+	    	$("#joinnow").toggle();
 	    	$("#loggin").hide();
 	    });
 
 	    $("#signin").click(function() { 
-	    	$("#loggin").show();
+	    	$("#loggin").toggle();
 	    	$("#joinnow").hide();
 	    });
 
-	    $(".xout").click(function (event) {
-			$(event.target).closest('div').toggle()
-		});
+	 //    $(".xout").click(function {
+		// 	$("#loggin").toggle()
+		// });
 
     
 			// });

@@ -9,12 +9,16 @@
 <br><br><br>
 <% end %>
 <% if @compares %>
-<% @compares.comparables.each do |comp| %>
-<%= comp.last.address[:street] %> | <%= number_to_currency(comp.last.price) %> | <%= number_to_currency(comp.last.last_sold_price) %> | <%= link_to "more info", comp.last.links[:homedetails],target: "_blank" %> | <%# link_to "Save to Search", %><br><br>
-  <% end %>
-<% end %>
+	<% @compares.comparables.each do |comp| %>
+	<%= comp.last.address[:street] %> | <%= number_to_currency(comp.last.price) %> | <%= comp.last.last_sold_date %> | <%= number_to_currency(comp.last.last_sold_price) %> | <%= link_to "more info", comp.last.links[:homedetails],target: "_blank" %> | 
+			
+			<%= link_to "Save to favorites", favorites_path(favorite: {address: comp.last.address[:street], zip: comp.last.address[:zipcode], last_sold_price: comp.last.last_sold_price, last_sold_date: comp.last.last_sold_date, link: comp.last.links[:homedetails], price: comp.last.price, zpid: comp.last.zpid}), method: :post %><br><br>
+			<% end %>
+	  <% end %>
+
 </div>
 </div>        
+
 
 
 

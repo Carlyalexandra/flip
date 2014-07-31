@@ -1,1 +1,5 @@
 <h1>THIS IS WHERE MY FAVORITE PROPERTIES ARE</h1>
+
+<% @favorites.each do |fav| %>
+	<%= fav.address %> | <%= number_to_currency(fav.price) %> | <%= fav.last_sold_date %> | <%= number_to_currency(fav.last_sold_price) %> | <%= link_to "more info", fav.link,target: "_blank" %> | <%= link_to "remove", favorite_path(fav.id), method: :delete %> <br> 
+<% end %>

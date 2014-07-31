@@ -18,7 +18,7 @@ class HomesController < ApplicationController
      end
      value = search.zpid 
      @results = Rubillow::HomeValuation.zestimate({ :zpid => value }) if value
-     @compares = Rubillow::PropertyDetails.deep_comps({ :zpid => value, :count => 5 }) if value
+     @compares = Rubillow::PropertyDetails.deep_comps({ :zpid => value, :count => 10 }) if value
    end
  end
 
@@ -27,6 +27,9 @@ class HomesController < ApplicationController
   
   end
  
+  def favorites
+     @favorites = current_user.favorites
+  end
 
 
   private
