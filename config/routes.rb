@@ -5,14 +5,14 @@ Rails.application.routes.draw do
   resources :lenders, only: [:index]
   resources :addition_info, only: [:index]
   resources :design_ideas, only: [:index, :show]
-  resources :saved_searches, only: [:show, :destroy]
+  resources :favorites, only: [:show, :destroy]
   
 
-  post 'homes/search', to: 'homes#search'
+  get 'favorites', to: 'homes#favorites'
 
   root 'homes#main'
 
-  get 'searches', to: "users#searches"
+  
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

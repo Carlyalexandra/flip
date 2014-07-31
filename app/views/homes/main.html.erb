@@ -1,14 +1,9 @@
 <div id="main">
 	<section id="topsection">
 	<br>
-		<div id="search">
-		<%= form_tag homes_path, :method => 'get', id: 'inputs' do %>
-    	<%= text_field_tag :citystatezip, nil, placeholder: 'Enter a city and state, or zipcode' %>
-    	<%= submit_tag "Submit" %>
-<% end %>
-		</div>
+		<%= render partial: "search" %>
 		<div id="video">
-			<iframe width="490" height="276" src="//www.youtube.com/embed/IJk0vH0Qous" frameborder="0" allowfullscreen></iframe>
+			<iframe src="http://player.vimeo.com/video/102186242?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="550" height="310" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</div>
 		<div id="formula">
 			<h3>The 70% RULE</h3>
@@ -25,23 +20,25 @@
 			 <div id='houseCost'></div>
 		</div>
 	</section>
-	<hr>
-	<section id="middleseciont">
-		<article>
-			HOT MARKETS
-		</article>
-		<br>
-		<article>
-			RISKS OF FLIPPING
-		</article>
+
+	<section id="middlesection">
+	<hr id="bar">
+	<h2>You are always going to have question about buying and selling property. Here is where you'll find answers.</h2>
+		<div id="hot">
+			<article>HOT MARKETS</article>
+		</div>
+		<div id="risk">
+			<article>RISKS OF FLIPPING</article>
+		</div>
+
 	</section>
-	<hr>
+	<!-- <hr>
 	<section id="bottomsection">
 		<p>MORE INFO</p>
 		<p>MORE INFO</p>
 		<p>MORE INFO</p>
-	</section>
-
+	</section> -->
+	
 </div>
 
 

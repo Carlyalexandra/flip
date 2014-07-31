@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    User.id = current_user
+   
   end
 
   def edit

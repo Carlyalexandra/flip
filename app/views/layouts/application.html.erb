@@ -11,7 +11,7 @@
 <p id="logo"><%= link_to 'LOGO', root_path %></p>
 	<ul id="login">
 		<% if current_user %>
-		<li><p id="welcome"> Welcome <%#link_to "#{current_user.name}",  %> |  <%= link_to "Log Out", destroy_user_session_path, method: "delete" %></p></li>
+		<li><p id="welcome">Welcome <%= link_to "#{current_user.name}", favorites_path %> |  <%= link_to "Log Out", destroy_user_session_path, method: "delete" %></p></li>
 		<% else %>
 		<li><p><%= link_to "Sign In", user_session_path, id: 'signin' %> | <%= link_to "Sign Up", new_user_registration_path, id: 'signin' %></p></li>
 		<% end %>	
@@ -25,8 +25,7 @@
 				<li><%=link_to 'find properties', homes_path %>
 					<ul>
 						<li><a href="">Link</a></li>
-						<li><%# link_to 'saved searches' %></li>
-						<li><a href="">Link</a></li>
+						<li><%=link_to "saved searches", favorites_path %></li>
 					</ul>
 				</li>	
 				<li><%=link_to'forums', forums_path %>
@@ -42,13 +41,18 @@
 					<ul>
 						<li><a href="">Link</a></li>
 						<li><a href="">Link</a></li>
-						<li><a href="">Link</a></li>
 					</ul>
 				</li>
 				<li><%=link_to "additional resources", addition_info_index_path %>
 		 		</li>		
 			</ul>
 		</nav>
+	</div>
+	<div id="joinnow">
+		<%= render partial: "signup" %>
+	</div>
+	<div id="loggin">
+		<%= render partial: "signin" %>
 	</div>
 </div>
 

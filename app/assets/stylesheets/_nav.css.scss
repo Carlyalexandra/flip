@@ -1,6 +1,14 @@
 $default1-color:#FFC464;
 $default2-color: orange;
 
+
+// nav img {
+// 	margin-top: -20px;
+// 	width:35px;
+// 	height:auto;
+// 	padding-left: 30px;
+// }
+
 .navdrop	{
 	height: 50px;
     padding: 0;
@@ -61,4 +69,8 @@ $default2-color: orange;
 				
 .navdrop li ul li a:hover {
 	background-color:$default2-color ;
+}
+
+#joinnow, #loggin {
+	display: none;
 }
