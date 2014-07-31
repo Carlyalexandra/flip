@@ -21,18 +21,16 @@ $(document).on('ready page:load', function () {
 
 
 
+
 	$("#formulButton").click(function(){
 
-		function validateInput() {
-    	var x = $("avr_").val()
-    	if (x == null || x == "") && ! a number{
-        alert("First name must be filled out");
-        return false;
-    }
-}
-
-		
-
+// 		function validateInput() {
+//     	var x = $("avr_").val()
+//     	if (x == null || x == "") && ! a number{
+//         alert("First name must be filled out");
+//         return false;
+//     }
+// }
 
 		var avrPrice = Number($("#avr_").val().replace(/[^0-9\.]+/g,""));
 
@@ -57,7 +55,7 @@ $(document).on('ready page:load', function () {
         $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
     })
 }
-
-
-		
 });
+
+
+
