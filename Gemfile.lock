@@ -169,11 +169,8 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise
-<<<<<<< HEAD
   devise_cas_authenticatable
-=======
   geocoder
->>>>>>> d66304654f18368798b7262f2317e6bd9b318dcc
   jbuilder (~> 2.0)
   jquery-rails
   json
