@@ -30,6 +30,7 @@ gem 'rest-client'
 gem 'json'
 gem 'devise'
 gem 'bourbon'
+gem 'devise_cas_authenticatable'
 
 gem 'xml-simple', '~> 1.1.4'
 gem "rubillow"
@@ -45,6 +46,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'database_cleaner'
 end
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
