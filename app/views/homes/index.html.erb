@@ -1,7 +1,9 @@
 <div id="wapperH">
 
 	<%= render partial: "search" %>
-<div id="results">	
+<div id="results">
+<%= @search %>
+	
 <% if @results %>
 <%= @results.address[:street] %> | <%= number_to_currency(@results.price) %> <br>
 <br><br><br>

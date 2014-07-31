@@ -18,19 +18,7 @@
 
 $(document).on('ready page:load', function () {
 
-
-
-
-
 	$("#formulButton").click(function(){
-
-// 		function validateInput() {
-//     	var x = $("avr_").val()
-//     	if (x == null || x == "") && ! a number{
-//         alert("First name must be filled out");
-//         return false;
-//     }
-// }
 
 		var avrPrice = Number($("#avr_").val().replace(/[^0-9\.]+/g,""));
 
@@ -49,6 +37,44 @@ $(document).on('ready page:load', function () {
 		
 	});
 
+	// $(document).on('ajax:success', '.nav', function(e){
+
+	    $("#signup").click(function() { 
+	    	$("#joinnow").show();
+	    	$("#loggin").hide();
+	    });
+
+	    $("#signin").click(function() { 
+	    	$("#loggin").show();
+	    	$("#joinnow").hide();
+	    });
+
+	    $(".xout").click(function (event) {
+			$(event.target).closest('div').toggle()
+		});
+
+    
+			// });
+
+
+
+	// $("#signup").click(function() {
+	// 	if ($("#joinnow").is(":hidden") || $("#loggin").is(":hidden")){
+	// 		$("#joinnow").show();
+	// 	}	
+	// 	else {
+	// 		$("#joinnow").hide();
+	// 	}
+		
+	// });
+
+	// $("#signin").click(function() {
+	//   if ($("#joinnow").is(":hidden") || $("#loggin").is(":hidden")){
+	// 	$("#loggin").show();
+	//   }else{
+	// 	$("#loggin").hide();
+	//   }
+	// });
 
 		$.fn.digits = function(){ 
     	return this.each(function(){ 
@@ -57,5 +83,13 @@ $(document).on('ready page:load', function () {
 }
 });
 
+
+// 		function validateInput() {
+//     	var x = $("avr_").val()
+//     	if (x == null || x == "") && ! a number{
+//         alert("First name must be filled out");
+//         return false;
+//     }
+// }
 
 

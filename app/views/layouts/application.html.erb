@@ -13,7 +13,7 @@
 		<% if current_user %>
 		<li><p id="welcome">Welcome <%= link_to "#{current_user.name}", favorites_path %> |  <%= link_to "Log Out", destroy_user_session_path, method: "delete" %></p></li>
 		<% else %>
-		<li><p><%= link_to "Sign In", user_session_path, id: 'signin' %> | <%= link_to "Sign Up", new_user_registration_path, id: 'signin' %></p></li>
+		<li><p><span id="signin">Sign In</span> | <span id="signup"> Sign Up</span></p></li>
 		<% end %>	
 		<br>
 	</ul>	
@@ -39,8 +39,8 @@
 		 		</li>
 		 		<li><%=link_to "design ideas", design_ideas_path %>
 					<ul>
-						<li><a href="">Link</a></li>
-						<li><a href="">Link</a></li>
+						<li><a href="">contractors</a></li>
+						<li><a href="">showrooms</a></li>
 					</ul>
 				</li>
 				<li><%=link_to "additional resources", addition_info_index_path %>

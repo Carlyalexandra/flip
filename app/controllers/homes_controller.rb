@@ -3,11 +3,23 @@ class HomesController < ApplicationController
 
 
  def index
- query = params[:citystatezip].to_s 
- search = Rubillow::HomeValuation.search_results({ :address => '265 Lafayette Street', :citystatezip => query }) if query
- value = search.zpid 
- @results = Rubillow::HomeValuation.zestimate({ :zpid => value }) if value
- @compares = Rubillow::PropertyDetails.deep_comps({ :zpid => value, :count => 5 }) if value
+   query = params[:citystatezip].to_s
+   unless query.blank?
+    #@results = fetch_results(query)
+
+     puts "query: #{query}"
+     data = Indirizzo::Address.new(query)
+     number = data.number.to_s
+     street = data.street.first
+     address = number + " " + street
+     zip = data.zip
+     if zip && address
+      search = Rubillow::HomeValuation.search_results({ :address => address, :citystatezip => zip })
+     end
+     value = search.zpid 
+     @results = Rubillow::HomeValuation.zestimate({ :zpid => value }) if value
+     @compares = Rubillow::PropertyDetails.deep_comps({ :zpid => value, :count => 5 }) if value
+   end
  end
 
 
