@@ -26,13 +26,7 @@ ActiveRecord::Schema.define(version: 20140730205813) do
     t.string   "city"
   end
 
-<<<<<<< HEAD
-  create_table "users" do |t|
-    t.string "username" null: false
-  end
-=======
   add_index "homes", ["user_id"], name: "index_homes_on_user_id"
->>>>>>> d66304654f18368798b7262f2317e6bd9b318dcc
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,6 +46,5 @@ ActiveRecord::Schema.define(version: 20140730205813) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", "username", :unique => true
 
 end
