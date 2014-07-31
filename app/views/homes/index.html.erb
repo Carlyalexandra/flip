@@ -1,14 +1,17 @@
 <div id="wapperH">
-<h1>THIS IS WHERE THE LISTINGS WILL GO </h1>
+
+	<%= render partial: "search" %>
+<div id="results">	
 <% if @results %>
 <%= @results.address[:street] %> | <%= number_to_currency(@results.price) %> <br>
-<br>
+<br><br><br>
 <% end %>
 <% if @compares %>
 <% @compares.comparables.each do |comp| %>
-<%= comp.last.address[:street] %> | <%= number_to_currency(comp.last.price) %> | <%= number_to_currency(comp.last.last_sold_price) %> <br>
+<%= comp.last.address[:street] %> | <%= number_to_currency(comp.last.price) %> | <%= number_to_currency(comp.last.last_sold_price) %> | <%= link_to "more info", comp.last.links[:homedetails],target: "_blank" %> | <%# link_to "Save to Search", %><br><br>
   <% end %>
 <% end %>
+</div>
 </div>        
 
 
