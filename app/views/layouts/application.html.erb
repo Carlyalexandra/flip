@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="header">
-<p id="logo"><%= link_to 'LOGO', root_path %></p>
+<p id="logo"><%= link_to 'BOGO', root_path %></p>
 	<ul id="login">
 		<% if current_user %>
 		<li><p id="welcome">Welcome <%= link_to "#{current_user.name}", favorites_path %> |  <%= link_to "Log Out", destroy_user_session_path, method: "delete" %></p></li>
@@ -23,8 +23,10 @@
 				<li><%= link_to 'home', root_path %>
 				</li>		
 				<li><%=link_to 'find properties', homes_path %>
-					<ul>
+					<ul> <% if current_user %>
 						<li><%=link_to "saved favorites", favorites_path %></li>
+						<% end %>
+
 					</ul>
 				</li>	
 				<li><%=link_to'forums', forums_path %>

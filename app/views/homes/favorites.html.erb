@@ -1,5 +1,15 @@
-<h1>THIS IS WHERE MY FAVORITE PROPERTIES ARE</h1>
 
-<% @favorites.each do |fav| %>
-	<%= fav.address %> | <%= number_to_currency(fav.price) %> | <%= fav.last_sold_date %> | <%= number_to_currency(fav.last_sold_price) %> | <%= link_to "more info", fav.link,target: "_blank" %> | <%= link_to "remove", favorite_path(fav.id), method: :delete %> <br> 
-<% end %>
+<div class="wrapperH">
+<%= render partial: "search" %>
+	<div id="favorites">
+	<h2>My Favorite Search Results</h2>
+	<% @favorites.each do |fav| %>
+
+		<p><span class="taginfo">Address: </span><%= fav.address %>, <%= fav.city %>, <%= fav.state %>, <%= fav.zip %></p><p><span class="taginfo">Present Value: </span> <%= number_to_currency(fav.price) %></p><p><span class="taginfo"> Last Sold Price:</span> <%= number_to_currency(fav.last_sold_price) %><span class="taginfo"> Sold On: </span><%= fav.last_sold_date %></p>  
+
+
+		<p><%= link_to "more info", fav.link,target: "_blank" %></p> 
+		<p><%= link_to "remove", favorite_path(fav.id), method: :delete %></p> <br> 
+	<% end %>
+	</div>
+</div>

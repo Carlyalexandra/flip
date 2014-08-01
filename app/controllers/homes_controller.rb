@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+ class HomesController < ApplicationController
 # require 'rubillow'
 
 
@@ -28,7 +28,11 @@ class HomesController < ApplicationController
   end
  
   def favorites
+    if current_user
      @favorites = current_user.favorites
+    else
+      flash[:alert] = "You must log in store favorites"
+    end
   end
 
 

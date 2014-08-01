@@ -49,6 +49,10 @@ $(document).on('ready page:load', function () {
 	    	$("#joinnow").hide();
 	    });
 
+	    $("#saveto").click(function() { 
+	    	$("#loggin").toggle();
+	    });
+
 	 //    $(".xout").click(function {
 		// 	$("#loggin").toggle()
 		// });
