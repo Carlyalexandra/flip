@@ -5,18 +5,24 @@
  def index
    query = params[:citystatezip].to_s
    unless query.blank?
-    #@results = fetch_results(query)
-
      puts "query: #{query}"
      data = Indirizzo::Address.new(query)
-     number = data.number.to_s
-     street = data.street.first
-     address = number + " " + street
-     zip = data.zip
-     if zip && address
-      search = Rubillow::HomeValuation.search_results({ :address => address, :citystatezip => zip })
+     address = ""
+     address << "#{data.number.to_s} " if data.number
+     if data.street and data.street.first
+      address << data.street.first 
      end
-     value = search.zpid 
+     zip = data.zip
+     puts "**** Address: #{address} | Zip: #{zip} ***"
+       if !zip.blank? && !address.blank?
+        puts "found an address"
+        search = Rubillow::HomeValuation.search_results({ :address => address, :citystatezip => zip })
+       else
+         puts "did not find an address"
+         flash[:alert] = "Please enter and street address and zip code"
+         redirect_to homes_path 
+       end
+     value = search.zpid if search
      @results = Rubillow::HomeValuation.zestimate({ :zpid => value }) if value
      @compares = Rubillow::PropertyDetails.deep_comps({ :zpid => value, :count => 10 }) if value
    end
