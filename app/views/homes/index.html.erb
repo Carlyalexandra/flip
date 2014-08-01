@@ -12,14 +12,21 @@
 
 
 <% if @compares %>
+	<% if current_user == nil %>
+	<p>(<span id="saveto">Login to save properties to favorites</span>)</p><br>
+	<% end %>
 <h1>Other Properties in the Area</h1>
 	<% @compares.comparables.each do |comp| %>
 	<p><span class="taginfo">Street Address:</span> <%= comp.last.address[:street] %>, <%= comp.last.address[:city] %>, <%= comp.last.address[:state] %>, <%= comp.last.address[:zipcode] %></p><p><span class="taginfo">Present Value:</span> <%= number_to_currency(comp.last.price) %></p><p><span class="taginfo"> Last Sold Price:</span> <%= number_to_currency(comp.last.last_sold_price) %> <span class="taginfo"> Sold On: </span><%= comp.last.last_sold_date %></p><p> <%= link_to "more info", comp.last.links[:homedetails],target: "_blank" %></p> 
-			
+			<% if current_user %>
 			<p><%= link_to "Save to favorites", favorites_path(favorite: {address: comp.last.address[:street], city: comp.last.address[:city], state: comp.last.address[:state], zip: comp.last.address[:zipcode], last_sold_price: comp.last.last_sold_price, last_sold_date: comp.last.last_sold_date, link: comp.last.links[:homedetails], price: comp.last.price, zpid: comp.last.zpid}), method: :post %></p><br><br>
+			<% else %>
+			<br>
 			<% end %>
 	  <% end %>
 
+	<% end %>
+	
 </div>
 </div>        
 
