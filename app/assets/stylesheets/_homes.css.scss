@@ -1,13 +1,25 @@
 // Place all the styles related to the Homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- #wapperH {
+ .wrapperH {
  	margin-top: -19px;
  	background-color: #FFFDE4;
- 	height: 700px;
+ 	height: 2000px;
+ 	
  }
 
- #results {
+ .results {
  	margin-top: 30px;
  	margin-left: 100px;
  }
+
+ .taginfo {
+ 	font-weight: bold;
+ }
+
+ #favorites {
+ 	margin-top: 30px;
+ 	margin-left: 100px;
+ }
+
+ 

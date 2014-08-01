@@ -20,7 +20,7 @@ class FavoritesController < ApplicationController
 
 	private
 	def favorite_params
-		params.require(:favorite).permit(:zpid, :link, :last_sold_date, :last_sold_price, :price, :address, :zip)
+		params.require(:favorite).permit(:zpid, :link, :last_sold_date, :last_sold_price, :price, :address, :zip, :city, :state)
 
 	end
 

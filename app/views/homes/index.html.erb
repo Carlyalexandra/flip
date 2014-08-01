@@ -1,18 +1,22 @@
-<div id="wapperH">
+<div class="wrapperH">
 
 	<%= render partial: "search" %>
-<div id="results">
+<div class="results">
 <%= @search %>
 	
 <% if @results %>
-<%= @results.address[:street] %> | <%= number_to_currency(@results.price) %> <br>
-<br><br><br>
+<h1>Property Searched</h1>
+<p><span class="taginfo"> Street Address:</span> <%= @results.address[:street] %>, <%= @results.address[:city] %>, <%= @results.address[:state] %>, <%= @results.address[:zipcode] %></p><p><span class="taginfo">Present Value:</span> <%= number_to_currency(@results.price) %></p><p><%= link_to "more info", @results.links[:homedetails],target: "_blank" %></p>   <br>
+<br><br>
 <% end %>
+
+
 <% if @compares %>
+<h1>Other Properties in the Area</h1>
 	<% @compares.comparables.each do |comp| %>
-	<%= comp.last.address[:street] %> | <%= number_to_currency(comp.last.price) %> | <%= comp.last.last_sold_date %> | <%= number_to_currency(comp.last.last_sold_price) %> | <%= link_to "more info", comp.last.links[:homedetails],target: "_blank" %> | 
+	<p><span class="taginfo">Street Address:</span> <%= comp.last.address[:street] %>, <%= comp.last.address[:city] %>, <%= comp.last.address[:state] %>, <%= comp.last.address[:zipcode] %></p><p><span class="taginfo">Present Value:</span> <%= number_to_currency(comp.last.price) %></p><p><span class="taginfo"> Last Sold Price:</span> <%= number_to_currency(comp.last.last_sold_price) %> <span class="taginfo"> Sold On: </span><%= comp.last.last_sold_date %></p><p> <%= link_to "more info", comp.last.links[:homedetails],target: "_blank" %></p> 
 			
-			<%= link_to "Save to favorites", favorites_path(favorite: {address: comp.last.address[:street], zip: comp.last.address[:zipcode], last_sold_price: comp.last.last_sold_price, last_sold_date: comp.last.last_sold_date, link: comp.last.links[:homedetails], price: comp.last.price, zpid: comp.last.zpid}), method: :post %><br><br>
+			<p><%= link_to "Save to favorites", favorites_path(favorite: {address: comp.last.address[:street], city: comp.last.address[:city], state: comp.last.address[:state], zip: comp.last.address[:zipcode], last_sold_price: comp.last.last_sold_price, last_sold_date: comp.last.last_sold_date, link: comp.last.links[:homedetails], price: comp.last.price, zpid: comp.last.zpid}), method: :post %></p><br><br>
 			<% end %>
 	  <% end %>
 
