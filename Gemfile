@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
 
 gem 'rest-client'
 gem 'json'
@@ -47,8 +46,18 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+group :production do
+	gem 'passenger'
+	gem 'rails_12factor'
+	gem 'pg'
+end
 
-
+group :development do
+	gem 'spring'
+	gem 'quiet_assets'
+	gem 'annotate'
+	gem 'sqlite3'        
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

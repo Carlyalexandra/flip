@@ -5,7 +5,7 @@
  def index
    query = params[:citystatezip].to_s
    unless query.blank?
-     puts "query: #{query}"
+     # puts "query: #{query}"
      data = Indirizzo::Address.new(query)
      address = ""
      address << "#{data.number.to_s} " if data.number
@@ -13,9 +13,9 @@
       address << data.street.first 
      end
      zip = data.zip
-     puts "**** Address: #{address} | Zip: #{zip} ***"
+     # puts "**** Address: #{address} | Zip: #{zip} ***"
        if !zip.blank? && !address.blank?
-        puts "found an address"
+        # puts "found an address"
         search = Rubillow::HomeValuation.search_results({ :address => address, :citystatezip => zip })
        else
          puts "did not find an address"
