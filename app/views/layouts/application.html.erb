@@ -5,10 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div id="header">
-<p id="logo"><%= link_to 'BOGO', root_path %></p>
+<p id="logo"><%= link_to 'Flipped', root_path %></p>
 	<ul id="login">
 		<% if current_user %>
 		<li><p id="welcome">Welcome <%= link_to "#{current_user.name}", favorites_path %> |  <%= link_to "Log Out", destroy_user_session_path, method: "delete" %></p></li>
