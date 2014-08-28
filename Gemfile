@@ -58,6 +58,8 @@ group :development do
 	gem 'annotate'
 	gem 'sqlite3'        
 end
+
+ruby "2.1.1"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
