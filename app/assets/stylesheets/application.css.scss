@@ -108,7 +108,22 @@ nav {
 	
 }
 
+#notice, #alert {
+  font:'Helvetica';
+  color: #E86847;
+  padding: .5em 1em;
+  border-bottom: 1px solid #E88747;
+  background-color: #FFE16D;
+  margin-top: 0px;
+}
 
+.dismiss {
+	cursor: pointer;
+}
+
+#signup, #signin {
+	cursor: pointer;
+}
 
 
 

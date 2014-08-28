@@ -37,6 +37,10 @@ $(document).on('ready page:load', function () {
 		
 	});
 
+
+	$(".dismiss").on('click', function (event) {	
+		$(event.target).closest('p').slideUp()
+	});
 	// $(document).on('ajax:success', '.nav', function(e){
 
 	    $("#signup").click(function() { 

@@ -10,12 +10,24 @@
 
 #wrapperA {
 	background-color: #FFFDE4;
+	padding-bottom: 40px;
 }
 
 #wrapperL  {
 	background-color: #FFFDE4;
 	margin-top: -20px;
 }
+
+#wrapperD {
+	background-color: #FFFDE4;
+	height: 100vh;
+	margin-top: -20px;
+}
+
+#design {
+	padding: 40px;
+}
+
 .container-fluid {
 	margin-left: 200px;
 }
@@ -33,6 +45,13 @@
  	margin-left: 100px;
  }
 
+#back_button {
+	padding-top: 20px;
+}
+#back_button a {
+	color: black;
+	padding-left: 5%;
+}
  #saveto {
  	cursor: pointer;
  }

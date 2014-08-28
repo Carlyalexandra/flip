@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Flip</title>
+  <title>Flipped</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -30,8 +30,8 @@
 
 					</ul>
 				</li>	
-				<li><%=link_to'forums', forums_path %>
-		 		</li>
+				<!-- <li><%=link_to'forums', forums_path %>
+		 		</li> -->
 		 		<li><%=link_to "lenders", lenders_path %>
 		 		</li>
 		 		<li><%=link_to "design ideas", design_ideas_path %>
@@ -56,8 +56,8 @@
 <div id="ten"></div>
 <div id="buffer">
 
-<%= notice if notice %>
-<%= alert if alert %>
+			<% if notice %><p id="notice"><%= notice %> <%= content_tag :span, 'x', class: "dismiss" %> </p><% end %>
+		    <% if alert %><p id="alert"><%= alert %> <%= content_tag :span, 'x', class: "dismiss" %> </p><% end %>
 <%= yield %>
 
 </div>
