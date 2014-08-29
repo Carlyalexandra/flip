@@ -1,6 +1,5 @@
  class HomesController < ApplicationController
 
- require 'Indirizzo'
 
 
  def index
