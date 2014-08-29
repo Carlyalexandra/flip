@@ -1,5 +1,6 @@
  class HomesController < ApplicationController
-# require 'rubillow'
+ require 'rubillow'
+ require 'Indirizzo'
 
 
  def index
