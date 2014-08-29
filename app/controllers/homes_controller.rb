@@ -1,5 +1,5 @@
  class HomesController < ApplicationController
- require 'rubillow'
+
  require 'Indirizzo'
 
 
