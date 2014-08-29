@@ -1,7 +1,12 @@
+GIT
+  remote: git://github.com/daveworth/Indirizzo.git
+  revision: 2dd0890801d3b9ce7304bca778a044af7fa2198e
+  specs:
+    Indirizzo (0.1.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    Indirizzo (0.1.7)
     actionmailer (4.1.4)
       actionpack (= 4.1.4)
       actionview (= 4.1.4)
@@ -180,7 +185,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Indirizzo
+  Indirizzo!
   annotate
   autoprefixer-rails
   bootstrap-sass (~> 3.2.0)
