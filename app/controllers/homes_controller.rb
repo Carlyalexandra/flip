@@ -1,8 +1,6 @@
  class HomesController < ApplicationController
 
-
-
- def index
+def index
    query = params[:citystatezip].to_s
    unless query.blank?
      # puts "query: #{query}"
