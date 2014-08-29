@@ -39,7 +39,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
 gem "geocoder"
-gem 'Indirizzo'
+gem 'Indirizzo', :git => 'git://github.com/daveworth/Indirizzo.git
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
