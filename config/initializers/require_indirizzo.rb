@@ -1,1 +1,1 @@
-require 'Indirizzo' 
+require 'indirizzo/address'
